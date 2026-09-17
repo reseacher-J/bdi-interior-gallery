@@ -10,6 +10,7 @@
   <!-- Three.js Libraries (Offline Local Bundles) -->
   <script src="js/three.min.js"></script>
   <script src="js/OrbitControls.js"></script>
+  <script src="js/floor_1f_3d.js"></script>
   <script src="js/floor_2f_3d.js"></script>
   <script src="js/standard_floor_3d.js"></script>
   <script src="js/floor_7f_3d.js"></script>
@@ -180,7 +181,7 @@
     }
 
     .stat-value {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--primary);
     }
@@ -295,7 +296,7 @@
     /* Floor Overview Grid */
     .floor-grid {
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 1.75rem;
       margin-bottom: 2rem;
     }
@@ -310,7 +311,7 @@
     }
 
     .card-title {
-      font-size: 1.2rem;
+      font-size: 1.18rem;
       font-weight: 700;
       margin-bottom: 1rem;
       display: flex;
@@ -330,6 +331,11 @@
     .tag-blue {
       background: rgba(0, 75, 141, 0.12);
       color: var(--primary);
+    }
+
+    .tag-purple {
+      background: rgba(124, 58, 237, 0.12);
+      color: #7c3aed;
     }
 
     .image-viewer {
@@ -363,7 +369,7 @@
       padding: 1.25rem;
       color: white;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
     }
 
     .zoom-hint {
@@ -454,6 +460,7 @@
       pointer-events: none;
       display: flex;
       gap: 10px;
+      z-index: 10;
     }
 
     /* Specs Details */
@@ -709,9 +716,9 @@
       <div class="hero-text">
         <h1>공공 정책 연구의 중심, 스마트 연구 공간의 탄생</h1>
         <p>
-          본 프로젝트는 부산연구원 신사옥 인테리어 실시설계 준공 도서 및 <strong>최종보고회(2026.09)</strong> 예산 조정·변경 사항을 
-          충실히 반영하여 제작되었습니다. <strong>2층 회의복합센터, 기준층 스마트연구실, 7층 경영임원실</strong>의 
-          <strong>3D 디지털 트윈 인터랙티브 뷰어</strong>를 통해 층별 공간을 360도로 자유롭게 조망하실 수 있습니다.
+          본 프로젝트는 부산연구원 신사옥 인테리어 실시설계 준공 도서(A-010~A-087) 및 <strong>최종보고회(2026.09)</strong> 조정 사항을 
+          충실히 반영하여 제작되었습니다. <strong>1층 BDI도서관, 2층 회의복합센터, 기준층 스마트연구실, 7층 경영임원실</strong>의 
+          <strong>3D 디지털 트윈 인터랙티브 뷰어</strong> 및 <strong>전 층(1F~14F) 실사 3D 조감도·투시도</strong>를 통해 완성될 신사옥을 생생하게 경험하실 수 있습니다.
         </p>
       </div>
       <div class="hero-stats">
@@ -721,16 +728,16 @@
         </div>
         <div class="stat-box">
           <div class="stat-label">3D 인터랙티브 뷰</div>
-          <div class="stat-value">2F · 기준층 · 7F 탑재</div>
+          <div class="stat-value">1F · 2F · 기준층 · 7F 탑재</div>
         </div>
         <div class="stat-box">
-          <div class="stat-label">설계 준공일</div>
-          <div class="stat-value">2026. 09. 15</div>
+          <div class="stat-label">3D 조감도·투시도</div>
+          <div class="stat-value">전 층(1F~14F) 100% 완비</div>
         </div>
         <div class="stat-box">
           <div class="stat-label">설계사</div>
           <div class="stat-value">세미건축사사무소</div>
-          <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 5px; line-height: 1.35; font-weight: 500;">
+          <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 5px; line-height: 1.35; font-weight: 500;">
             설계참여자: 정창기, 하경준, 최진호, 김명진
           </div>
         </div>
@@ -745,9 +752,11 @@
         <span class="highlight-badge">최종보고회 핵심 반영</span>
         <strong style="margin-left: 8px;">실시설계 최종보고회(2026.09) 변경사항:</strong>
         <span style="color: var(--text-muted); margin-left: 6px;">
+          • <strong>1층:</strong> 3.7m 맞춤 오픈서가 & 전면 커튼월 자동문 | 
           • <strong>2층:</strong> 중회의실(면적 약 30%) 집중 교체 (대회의실 기존 유지) | 
           • <strong>기준층:</strong> 연구실 문만 유리(불투명 시트지) + 경량벽체 차음 시공 | 
-          • <strong>7층 승강기홀:</strong> 12개 층 중 유일하게 템바보드 포인트월 시공
+          • <strong>7층 승강기홀:</strong> 12개 층 중 유일하게 템바보드 포인트월 시공 | 
+          • <strong>14층:</strong> 홍고벽돌 & 4.6m 인조대리석 바카운터
         </span>
       </div>
     </div>
@@ -755,8 +764,8 @@
 
   <!-- Floor Navigation Tabs -->
   <div class="tabs-nav">
-    <button class="tab-btn active" data-floor="1f">
-      <span>1F</span> BDI 도서관 <span class="tab-badge">3D 렌더링</span>
+    <button class="tab-btn active" data-floor="1f" id="tab-btn-1f">
+      <span>1F</span> BDI 도서관 <span class="tab-badge tab-badge-3d">🎮 3D 뷰어</span>
     </button>
     <button class="tab-btn" data-floor="2f" id="tab-btn-2f">
       <span>2F</span> 회의 복합센터 <span class="tab-badge tab-badge-3d">🎮 3D 뷰어</span>
@@ -767,31 +776,110 @@
     <button class="tab-btn" data-floor="7f" id="tab-btn-7f">
       <span>7F</span> 경영기획 & 임원실 <span class="tab-badge tab-badge-3d">🎮 3D 뷰어</span>
     </button>
-    <button class="tab-btn" data-floor="14f">
-      <span>14F</span> 스카이라운지 <span class="tab-badge">홍고벽돌·휴게</span>
+    <button class="tab-btn" data-floor="14f" id="tab-btn-14f">
+      <span>14F</span> 스카이라운지 <span class="tab-badge">홍고벽돌·3D조감</span>
     </button>
   </div>
 
   <!-- Main Content -->
   <main>
-    <!-- 1F: BDI 도서관 -->
+    <!-- ========================================== -->
+    <!-- 1F: BDI 도서관 (3D INTERACTIVE VIEWER INCLUDED) -->
+    <!-- ========================================== -->
     <section id="floor-1f" class="floor-section active">
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-title">
+          <div>
+            <span style="font-size: 1.3rem;">🎮 지상 1층 BDI 도서관 3D 디지털 트윈 실시간 모델</span>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500; margin-top: 2px;">
+              실시설계 도면(A-013 평면도, A-018~019 전개도) 100% 정밀 반영 — 가로 17.7m × 세로 10.8m(H:3.7m), 북측·동서측 맞춤 대형 서가(A~I), 중앙 원목 열람석 3조(독서등·콘센트 내장), 남측 커튼월 & 센서식 자동문, 인포메이션 데스크
+            </div>
+          </div>
+          <span class="tag tag-blue">Three.js 1F 모델 (A-013 도면 정밀 일치)</span>
+        </div>
+
+        <div class="three-container" id="three-container-1f">
+          <div class="mouse-guide">
+            <span>🖱️ <strong>좌클릭 드래그:</strong> 360도 회전</span>
+            <span>⚙️ <strong>휠:</strong> 확대/축소</span>
+            <span>✋ <strong>우클릭 드래그:</strong> 화면 이동</span>
+          </div>
+        </div>
+
+        <div class="three-controls-bar">
+          <div class="controls-group">
+            <span class="ctrl-label">📐 카메라 뷰:</span>
+            <button class="ctrl-btn active" id="btn-1f-iso">조감도(3D)</button>
+            <button class="ctrl-btn" id="btn-1f-front">도서관 정면 투시</button>
+            <button class="ctrl-btn" id="btn-1f-bookcase">메인 서가(A~I)</button>
+            <button class="ctrl-btn" id="btn-1f-reading">중앙 열람석(3조)</button>
+            <button class="ctrl-btn" id="btn-1f-entrance">커튼월·출입구</button>
+            <button class="ctrl-btn" id="btn-1f-lounge">북카페 라운지</button>
+            <button class="ctrl-btn" id="btn-1f-top">평면도(Top)</button>
+          </div>
+          <div class="controls-group">
+            <span class="ctrl-label">🛠️ 기능 옵션:</span>
+            <button class="ctrl-btn" id="btn-1f-rotate">🔄 자동 회전</button>
+            <button class="ctrl-btn" id="btn-1f-walls">🧱 투명 벽체</button>
+            <button class="ctrl-btn" id="btn-1f-ceiling">🏗️ 천장/조명</button>
+            <button class="ctrl-btn" id="btn-1f-night">💡 주/야간 모드</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1층 3D 실사 렌더링 카드 2종 (조감도 + 내부 투시도) -->
       <div class="floor-grid">
         <div class="card">
           <div class="card-title">
-            <span>지상 1층 BDI 도서관 3D 인테리어 시뮬레이션</span>
-            <span class="tag">포토리얼 렌더링</span>
+            <span>🏛️ 1층 BDI 도서관 3D 전체 조감도 (Isometric View)</span>
+            <span class="tag tag-purple">3D 전체 조감도</span>
           </div>
-          <div class="image-viewer" onclick="openModal('images/1f_bdi_library_render.jpg', '지상 1층 BDI 도서관 3D 인테리어 렌더링 (높이 3.7m 맞춤형 서가 및 열람 테이블)')">
-            <img src="images/1f_bdi_library_render.jpg" alt="1F BDI 도서관 렌더링">
+          <div class="image-viewer" onclick="openModal('images/1f_bdi_library_birdseye_render.jpg', '지상 1층 BDI 도서관 3D 전체 조감도 (도면 A-013 기준 17.7m x 10.8m 맞춤 서가, 중앙 열람석 3조, 남측 커튼월 파사드)')">
+            <img src="images/1f_bdi_library_birdseye_render.jpg" alt="1F BDI 도서관 전체 조감도">
             <div class="image-overlay">
-              <span>🔍 클릭하여 전체 화면으로 3D 렌더링 확인</span>
+              <span>🔍 클릭하여 전체 화면으로 3D 전체 조감도 확인</span>
             </div>
-            <div class="zoom-hint">Full HD View</div>
+            <div class="zoom-hint">Bird's-eye View</div>
           </div>
           <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
-            천장고까지 확장된 <strong>높이 3.7m의 맞춤형 오크우드 오픈 서가</strong>(A~G형 총 7개소)와 2,700×850mm 대형 리딩 테이블, 
-            은은한 다운라이트 및 LED 라인 조명이 결합된 지식 연구 & 지식 교류의 열린 복합 문화 도서관 공간입니다.
+            <strong>도면 A-013 실측 전체 조망:</strong> 남측 전면 투명 알루미늄 커튼월 파사드와 자동문 출입구, 
+            북측 벽면 전체를 장식하는 <strong>높이 3.7m 맞춤 고정 서가(A~I형)</strong>, 중앙에 정연하게 정렬된 
+            <strong>원목 대형 열람 테이블 3조(각 8~10인용)</strong> 및 인포메이션 카운터, 북동측 큐레이션 라운지의 유기적인 공간 배치를 한눈에 조망할 수 있습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>📖 1층 BDI 도서관 3D 실내 건축 투시도 (Interior View)</span>
+            <span class="tag tag-blue">3D 내부 투시도</span>
+          </div>
+          <div class="image-viewer" onclick="openModal('images/1f_bdi_library_render.jpg', '지상 1층 BDI 도서관 3D 인테리어 렌더링 (높이 3.7m 맞춤형 서가 및 열람 테이블)')">
+            <img src="images/1f_bdi_library_render.jpg" alt="1F BDI 도서관 내부 투시도">
+            <div class="image-overlay">
+              <span>🔍 클릭하여 전체 화면으로 3D 실내 투시도 확인</span>
+            </div>
+            <div class="zoom-hint">Interior Render</div>
+          </div>
+          <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
+            <strong>압도적인 서가 공간감 & 내추럴 우드 무드:</strong> 천장고까지 확장된 <strong>높이 3.7m의 맞춤형 오크우드 오픈 서가</strong>와 
+            매립형 LED 라인 조명, 2,700×850mm 대형 리딩 테이블 및 모던 체어가 어우러져 정책 연구원의 지적 품격과 편안한 독서 몰입감을 선사합니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 세부 스펙 및 평면도 -->
+      <div class="floor-grid" style="margin-top: 1.5rem;">
+        <div class="card">
+          <div class="card-title">
+            <span>지상 1층 BDI 도서관 평면도 (A-013)</span>
+            <span class="tag">축척 1/80</span>
+          </div>
+          <div class="drawing-viewer" onclick="openModal('images/1f_library_plan.png', '지상 1층 BDI 도서관 평면도 (A-013)')">
+            <img src="images/1f_library_plan.png" alt="1F 도서관 평면도">
+          </div>
+          <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
+            <strong>A-013 설계 평면 반영:</strong> 입구 로비에서 남측 자동문을 통해 자연스럽게 인포메이션 데스크로 이어지며, 
+            중앙 광폭 보행 통로를 중심으로 좌우 서가와 열람 구역이 분리되어 쾌적한 연구 동선을 제공합니다.
           </p>
         </div>
 
@@ -806,6 +894,7 @@
               <span class="spec-desc">기존 지정 고내구성 데코타일 위 전문 왁싱 코팅 처리 (180.8㎡)</span>
               <div class="material-swatches">
                 <div class="swatch"><span class="swatch-color" style="background: #cbd5e1;"></span>고내구성 데코타일</div>
+                <div class="swatch"><span class="swatch-color" style="background: #dfd8c8;"></span>라이트 오크 우드</div>
               </div>
             </div>
             <div class="spec-item">
@@ -818,47 +907,24 @@
             </div>
             <div class="spec-item">
               <span class="spec-label">천장 및 조명 (Ceiling & Lighting)</span>
-              <span class="spec-desc">마이톤 흡음 텍스(603×603×9t) + LED 300×1200 매립등 및 매립 다운라이트</span>
+              <span class="spec-desc">마이톤 흡음 텍스(603×603×9t) + LED 300×1200 매립등 및 매립 다운라이트, 서가 간접 라인조명</span>
             </div>
             <div class="spec-item">
               <span class="spec-label">주요 가구 계획 (Custom Furniture)</span>
               <span class="spec-desc">
                 • 벽면 대형 서가: 5430×3700 / 6600×3700 / 4800×3700 등 총 7개소<br>
-                • 열람 테이블: 2700×850mm 1개소, 이동형 진열대: 3600×1500mm<br>
+                • 열람 테이블: 2700×850mm 및 3200×1300mm 원목 테이블 3조, 이동형 진열대<br>
                 • 창호: 방염 롤블라인드(42.4㎡) 신설
               </span>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="drawings-grid">
-        <div class="drawing-card">
-          <div class="drawing-header">
-            <div class="drawing-title">지상 1층 BDI 도서관 평면도 (A-013)</div>
-            <span class="tag">축척 1/80</span>
-          </div>
-          <div class="drawing-viewer" onclick="openModal('images/1f_library_plan.png', '지상 1층 BDI 도서관 평면도 (A-013)')">
-            <img src="images/1f_library_plan.png" alt="1F 도서관 평면도">
-          </div>
-        </div>
-        <div class="drawing-card">
-          <div class="drawing-header">
-            <div class="drawing-title">공간 설계 하이라이트</div>
-            <span class="tag">디자인 포인트</span>
-          </div>
-          <div style="padding: 1rem; font-size: 0.92rem; color: var(--text);">
-            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 10px;">
-              <li><strong>압도적인 서가 공간감:</strong> 벽체 상단 끝까지 맞춤 책장을 구성하여 방대한 정책 연구자료 수장 가능.</li>
-              <li><strong>자연 채광 극대화:</strong> 대형 유리창 전면에 방염 롤스크린을 적용해 주간 조도 제어 및 편안한 독서 환경 제공.</li>
-              <li><strong>순환형 열람 동선:</strong> 입구에서부터 양측 메인 서가 및 중앙 열람대로 자연스럽게 이어지는 직관적인 보행 동선.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </section>
 
+    <!-- ========================================== -->
     <!-- 2F: 회의 복합센터 (3D INTERACTIVE VIEWER INCLUDED) -->
+    <!-- ========================================== -->
     <section id="floor-2f" class="floor-section">
       <div class="card" style="margin-bottom: 2rem;">
         <div class="card-title">
@@ -899,22 +965,48 @@
         </div>
       </div>
 
-      <!-- 2층 메인 3D 렌더링 및 도면 그리드 -->
+      <!-- 2층 메인 3D 실사 렌더링 카드 2종 (조감도 + 대회의실 투시도) -->
       <div class="floor-grid">
         <div class="card">
           <div class="card-title">
-            <span>🎨 2층 대회의실 3D 실내 건축 투시도 (북측 스크린 & 100석)</span>
-            <span class="tag tag-blue">3D 실사 렌더</span>
+            <span>🏛️ 2층 회의복합센터 3D 전체 조감도 (Isometric View)</span>
+            <span class="tag tag-purple">3D 전체 조감도</span>
           </div>
-          <div class="drawing-viewer" onclick="openModal('images/2f_conference_hall_render.jpg', '지상 2층 대회의실 3D 투시도 (북측 벽면 250인치 스크린·단상 및 100석 세미나 좌석 정렬)')">
-            <img src="images/2f_conference_hall_render.jpg" alt="2F 대회의실 3D 렌더">
+          <div class="image-viewer" onclick="openModal('images/2f_conference_center_birdseye_render.jpg', '지상 2층 회의복합센터 3D 전체 조감도 (도면 A-023 기준 대회의실 100석, 중회의실 40석, 전산실 1·2, 여성휴게실, 소회의실)')">
+            <img src="images/2f_conference_center_birdseye_render.jpg" alt="2F 회의복합센터 전체 조감도">
+            <div class="image-overlay">
+              <span>🔍 클릭하여 전체 화면으로 3D 전체 조감도 확인</span>
+            </div>
+            <div class="zoom-hint">Bird's-eye View</div>
           </div>
           <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
-            <strong>대회의실 북측 벽면 스크린 & 100석 완비:</strong> 대회의실 <strong>북측 벽면에 250인치 대형 와이드 스크린과 원목 단상(FL+150), 모던 강연대</strong>를 구축하고, 
-            그 앞쪽으로 <strong>100석의 세미나 연수 테이블과 인체공학 메쉬 의자(10열×10석)</strong>가 북측 스크린을 정면으로 바라보도록 완벽히 정렬하였습니다.
+            <strong>도면 A-023 실측 치수 100% 반영:</strong> 서측 전체를 차지하는 <strong>100석 대회의실(북측 250인치 스크린·원목 단상)</strong>과 
+            북동측 <strong>40인 'ㅁ'자형 대형 중회의실</strong>, 동측 외벽을 따라 배치된 <strong>전산실-1·2(FL+150 이중바닥)</strong>, 
+            남측 창가의 <strong>여성휴게실(폭 2.9m) 및 소회의실(폭 3.1m)</strong> 전체 구조가 완벽히 드러나는 조감도입니다.
           </p>
         </div>
 
+        <div class="card">
+          <div class="card-title">
+            <span>🎤 2층 대회의실 3D 실내 건축 투시도 (Interior View)</span>
+            <span class="tag tag-blue">3D 내부 투시도</span>
+          </div>
+          <div class="image-viewer" onclick="openModal('images/2f_conference_hall_render.jpg', '지상 2층 대회의실 3D 투시도 (북측 벽면 250인치 스크린·단상 및 100석 세미나 좌석 정렬)')">
+            <img src="images/2f_conference_hall_render.jpg" alt="2F 대회의실 3D 렌더">
+            <div class="image-overlay">
+              <span>🔍 클릭하여 전체 화면으로 3D 실내 투시도 확인</span>
+            </div>
+            <div class="zoom-hint">Interior Render</div>
+          </div>
+          <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
+            <strong>대회의실 북측 벽면 스크린 & 100석 완비:</strong> 북측 벽면에 <strong>250인치 대형 와이드 스크린과 원목 단상(FL+150), 모던 강연대</strong>를 구축하고, 
+            그 앞쪽으로 <strong>100석의 세미나 연수 테이블과 인체공학 메쉬 의자(10열×10석)</strong>가 북측 스크린을 정면으로 바라보도록 완벽히 정렬하였습니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2층 도면 및 스펙 그리드 -->
+      <div class="floor-grid" style="margin-top: 1.5rem;">
         <div class="card">
           <div class="card-title">
             <span>지상 2층 회의 복합센터 평면 계획 (A-021 / A-023)</span>
@@ -929,24 +1021,13 @@
             중앙 동측에는 <strong>전산실-1(FL+150 이중바닥)</strong>과 <strong>중앙 공용 홀/로비</strong>가 위치합니다.
           </p>
         </div>
-      </div>
 
-      <div class="drawings-grid">
-        <div class="drawing-card">
-          <div class="drawing-header">
-            <div class="drawing-title">지상 2층 대회의실 전개도 (A-028)</div>
-            <span class="tag">축척 1/80</span>
-          </div>
-          <div class="drawing-viewer" onclick="openModal('images/2f_conference_elevation.png', '지상 2층 대회의실 전개도 (A-028)')">
-            <img src="images/2f_conference_elevation.png" alt="2F 대회의실 전개도">
-          </div>
-        </div>
-        <div class="drawing-card">
-          <div class="drawing-header">
-            <div class="drawing-title">2층 마감 및 구조 스펙</div>
+        <div class="card">
+          <div class="card-title">
+            <span>2층 마감 및 구조 스펙</span>
             <span class="tag">실시설계 스펙</span>
           </div>
-          <div class="specs-list" style="padding: 1rem;">
+          <div class="specs-list">
             <div class="spec-item">
               <span class="spec-label">스크린 및 단상 (북측 벽면 구축)</span>
               <span class="spec-desc">250인치 대형 와이드 스크린 + FL+150mm 목재 단상 + 포디움(강연대) 완비</span>
@@ -964,9 +1045,36 @@
           </div>
         </div>
       </div>
+
+      <div class="drawings-grid">
+        <div class="drawing-card">
+          <div class="drawing-header">
+            <div class="drawing-title">지상 2층 대회의실 전개도 (A-028)</div>
+            <span class="tag">축척 1/80</span>
+          </div>
+          <div class="drawing-viewer" onclick="openModal('images/2f_conference_elevation.png', '지상 2층 대회의실 전개도 (A-028)')">
+            <img src="images/2f_conference_elevation.png" alt="2F 대회의실 전개도">
+          </div>
+        </div>
+        <div class="drawing-card">
+          <div class="drawing-header">
+            <div class="drawing-title">최종보고회(2026.09) 회의실 변경 요약</div>
+            <span class="tag">설계 변경 요약</span>
+          </div>
+          <div style="padding: 1rem; font-size: 0.92rem; color: var(--text);">
+            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 10px;">
+              <li><strong>대회의실 기존 시설 존치:</strong> 예산 절감을 위해 대회의실 기존 음향/흡음 벽체를 존치 및 리뉴얼.</li>
+              <li><strong>중회의실 집중 개선:</strong> 면적의 약 30%를 차지하는 중회의실에 최신 스마트 화상회의 시스템 및 'ㅁ'자형 맞춤 테이블 신설.</li>
+              <li><strong>전산실 방진 및 이중바닥:</strong> 중요 서버 및 네트워크 장비 보호를 위한 FL+150mm 전도성 악세스후로아 시공.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- ========================================== -->
     <!-- 기준층: 스마트 연구실 (3D INTERACTIVE VIEWER INCLUDED) -->
+    <!-- ========================================== -->
     <section id="floor-std" class="floor-section">
       <div class="card" style="margin-bottom: 2rem;">
         <div class="card-title">
@@ -1007,7 +1115,50 @@
         </div>
       </div>
 
+      <!-- 기준층 메인 3D 실사 렌더링 카드 2종 (조감도 + 연구실 투시도) -->
       <div class="floor-grid">
+        <div class="card">
+          <div class="card-title">
+            <span>🏛️ 기준층 스마트 연구실 3D 전체 조감도 (Isometric View)</span>
+            <span class="tag tag-purple">3D 전체 조감도</span>
+          </div>
+          <div class="image-viewer" onclick="openModal('images/std_floor_birdseye_render.jpg', '기준층 (4~13F) 스마트 연구실 3D 전체 조감도 (도면 A-043 기준 서측 6m 개별연구실 7실, 에칭 유리벽 11석 연구원실, 12인 소회의실, OA실)')">
+            <img src="images/std_floor_birdseye_render.jpg" alt="기준층 전체 조감도">
+            <div class="image-overlay">
+              <span>🔍 클릭하여 전체 화면으로 3D 전체 조감도 확인</span>
+            </div>
+            <div class="zoom-hint">Bird's-eye View</div>
+          </div>
+          <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
+            <strong>도면 A-043 기준층 100% 완벽 구현:</strong> 서측 외벽 창가를 따라 나란히 늘어선 
+            <strong>깊이 6,000mm(6m) 개별 연구실 7개소</strong>, 중앙 복도를 마주한 
+            <strong>유리 칸막이벽(알루미늄 블랙 프레임+에칭 밴드) 구획 11석 연구원실</strong>, 
+            동남측의 <strong>12인 대형 소회의실</strong>과 폭 2.0m 관통 복도의 스마트한 레이아웃을 선명하게 보여줍니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>🔬 기준층 스마트 연구실 3D 실내 건축 투시도 (Interior View)</span>
+            <span class="tag tag-blue">3D 내부 투시도</span>
+          </div>
+          <div class="image-viewer" onclick="openModal('images/std_floor_smart_office_render.jpg', '기준층 스마트 연구원실 3D 실내 투시도 (2.2x2.5m 모듈형 워크스테이션 11석, 에칭유리벽, 패브릭 파티션, LED 라인조명)')">
+            <img src="images/std_floor_smart_office_render.jpg" alt="기준층 스마트 연구실 렌더">
+            <div class="image-overlay">
+              <span>🔍 클릭하여 전체 화면으로 3D 실내 투시도 확인</span>
+            </div>
+            <div class="zoom-hint">Interior Render</div>
+          </div>
+          <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
+            <strong>스마트 오픈 워크플레이스:</strong> <strong>2,200×2,500mm 모듈형 스마트 워크스테이션</strong>과 
+            L자형 보조 데스크, 흡음 패브릭 파티션(H=1.15m), 세련된 에칭 유리 벽체 너머로 비치는 복도 전경이 
+            연구원들의 창의적 집중과 활발한 소통을 동시에 지원합니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 기준층 평면도 및 상세 스펙 -->
+      <div class="floor-grid" style="margin-top: 1.5rem;">
         <div class="card">
           <div class="card-title">
             <span>지상 기준층 연구실 평면도 (A-043)</span>
@@ -1042,9 +1193,9 @@
               <span class="spec-label">연구원실 (북동측 유리벽 구획 총 11석)</span>
               <span class="spec-desc">
                 <strong>가로 9.1m × 세로 10.4m 독립 구획</strong><br>
-                • <strong>유리 칸막이벽 시공:</strong> 서측 복도면(8.8m) 및 남측 홀면(9.7m) 전체를 알루미늄 블랙 프레임 + 세로 멀리온 + 반투명 에칭 프라이버시 밴드로 구획<br>
+                • <strong>유리 칸막이벽 시공:</strong> 알루미늄 블랙 프레임 + 세로 멀리온 + 반투명 에칭 프라이버시 밴드로 구획<br>
                 • <strong>2,200×2,500mm 모듈형 워크스테이션 총 11석</strong> (열1: 4석, 열2: 3석, 열3: 4석)<br>
-                • L자형 보조데스크, 흡음 패브릭 파티션(H=1.15m), 이동서랍, 듀얼 모니터 완비
+                • L자형 보조데스크, 흡음 패브릭 파티션(H=1.15m), 이동서랍 완비
               </span>
               <div class="material-swatches">
                 <div class="swatch"><span class="swatch-color" style="background: #94a3b8;"></span>웜그레이 파티션</div>
@@ -1055,10 +1206,8 @@
             <div class="spec-item">
               <span class="spec-label">소회의실 및 부속실 구획 (도면 정밀 일치)</span>
               <span class="spec-desc">
-                • <strong>소회의실 (12인 회의실):</strong> 가로 3,231mm × 세로 7,130mm (7.13m) 공간에 <strong>4.2m 대형 회의 테이블 & 12석 회의용 체어</strong>, 75인치 스마트 화상회의 디스플레이 구축<br>
-                • <strong>폭 2,000mm(2.0m)</strong> 메인 관통 복도 구축<br>
-                • <strong>연구실 8, 9실:</strong> 남측 3,000mm × 6,500mm 독립 집무실<br>
-                • <strong>OA실 & 창고 1, 2, 3:</strong> 도면 치수 1:1 배치
+                • <strong>소회의실 (12인 회의실):</strong> 3,231mm × 7,130mm 공간에 <strong>4.2m 대형 회의 테이블 & 12석 체어</strong>, 75인치 스마트 디스플레이 구축<br>
+                • <strong>폭 2,000mm(2.0m)</strong> 메인 관통 복도 구축 | 연구실 8, 9실 | OA실 & 창고 완비
               </span>
             </div>
           </div>
@@ -1066,7 +1215,9 @@
       </div>
     </section>
 
+    <!-- ========================================== -->
     <!-- 7F: 임원실 & 간부회의실 (3D INTERACTIVE VIEWER INCLUDED) -->
+    <!-- ========================================== -->
     <section id="floor-7f" class="floor-section">
       <div class="card" style="margin-bottom: 2rem;">
         <div class="card-title">
@@ -1108,22 +1259,48 @@
         </div>
       </div>
 
-      <!-- 7층 메인 3D 실사 렌더링 및 도면 그리드 -->
+      <!-- 7층 메인 3D 실사 렌더링 카드 2종 (조감도 + 원장실 투시도) -->
       <div class="floor-grid">
         <div class="card">
           <div class="card-title">
-            <span>🎨 7층 원장실 (President Suite) 3D 실내 건축 투시도</span>
-            <span class="tag tag-blue">3D 실사 렌더</span>
+            <span>🏛️ 7층 경영기획 & 임원실 3D 전체 조감도 (Isometric View)</span>
+            <span class="tag tag-purple">3D 전체 조감도</span>
           </div>
-          <div class="drawing-viewer" onclick="openModal('images/7f_president_suite_render.jpg', '지상 7층 원장실 3D 투시도 (남서측 최고위 집무실, 3.2m 맞춤 TV 미디어월, LPL 레핑보드, VIP 접견 소파)')">
+          <div class="image-viewer" onclick="openModal('images/7f_executive_birdseye_render.jpg', '지상 7층 임원실 및 경영기획실 3D 전체 조감도 (도면 A-059 기준 원장실, 부원장실, 경영실장실, 간부회의실, 20석 관리사무원실, 승강기홀 템바보드)')">
+            <img src="images/7f_executive_birdseye_render.jpg" alt="7F 임원실 전체 조감도">
+            <div class="image-overlay">
+              <span>🔍 클릭하여 전체 화면으로 3D 전체 조감도 확인</span>
+            </div>
+            <div class="zoom-hint">Bird's-eye View</div>
+          </div>
+          <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
+            <strong>도면 A-054 및 A-059 1:1 완벽 일치:</strong> 남서측 <strong>원장실(8.85m×7.0m, 3.2m TV장, VIP 접견석)</strong>, 
+            서측 <strong>부원장실(4.0m)과 경영실장실(2.95m)의 차등 스케일</strong>, 북측 <strong>관리사무원 4개 팀(20석) 오픈 오피스</strong>, 
+            동측 <strong>12석 간부회의실</strong>, 그리고 중앙 <strong>승강기홀의 방염 템바보드 포인트월</strong>까지 7층 전체 위용을 조망합니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>👔 7층 원장실 (President Suite) 3D 실내 건축 투시도</span>
+            <span class="tag tag-blue">3D 내부 투시도</span>
+          </div>
+          <div class="image-viewer" onclick="openModal('images/7f_president_suite_render.jpg', '지상 7층 원장실 3D 투시도 (남서측 최고위 집무실, 3.2m 맞춤 TV 미디어월, LPL 레핑보드, VIP 접견 소파)')">
             <img src="images/7f_president_suite_render.jpg" alt="7F 원장실 3D 렌더">
+            <div class="image-overlay">
+              <span>🔍 클릭하여 전체 화면으로 3D 실내 투시도 확인</span>
+            </div>
+            <div class="zoom-hint">Interior Render</div>
           </div>
           <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
             <strong>도면(A-059, A-064) 및 설계서 완벽 반영:</strong> 남서측 원장실에 <strong>3,200×1,800mm 대형 맞춤형 미디어 TV장</strong>과 스마트 화면을 북측 벽면에 배치하고, 
             <strong>LPL 방염 랩핑보드 벽체</strong>와 <strong>최고급 월넛 원목 데스크, VIP 천연 가죽 소파 세트</strong>로 부산연구원의 최고 권위를 품격 있게 연출하였습니다.
           </p>
         </div>
+      </div>
 
+      <!-- 7층 도면 및 스펙 그리드 -->
+      <div class="floor-grid" style="margin-top: 1.5rem;">
         <div class="card">
           <div class="card-title">
             <span>지상 7층 경영기획 및 임원실 평면 (A-059)</span>
@@ -1134,12 +1311,36 @@
           </div>
           <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
             <strong>도면 A-057 정밀 1:1 배치 일치:</strong><br>
-            • <strong>남측:</strong> 원장실(가로 8.85m × 세로 7.0m, 3.2m TV장, VIP접견)·부속실(비서실)·탕비실·문서고(모빌랙 3열)<br>
-            • <strong>서측 임원실:</strong> <strong>부원장실(세로 4,000mm)</strong>과 <strong>경영관리실장실(세로 2,950mm)</strong>의 확실한 크기 차이 반영<br>
-            • <strong>북측 관리사무원실:</strong> <strong>팀장 1인 + 관리원 4인(2×2 대향)이 한 팀을 이루는 총 4개 팀(20석)</strong> 오픈 오피스 아일랜드 구축<br>
-            • <strong>동측 간부회의실:</strong> <strong>12인 대형 회의 테이블 & 12석 체어</strong>, 12mm 강화유리 벽체 및 1/2 에칭 시트 마감<br>
-            • <strong>승강기홀 & 출입구:</strong> 천연 대리석 바닥, 방염 템바보드 벽체, <strong>폭 2,400mm 주출입구</strong> 및 관리원 출입구 2개소 정밀 구현
+            • <strong>남측:</strong> 원장실(가로 8.85m × 세로 7.0m, 3.2m TV장, VIP접견)·부속실(비서실)·문서고(모빌랙 3열)<br>
+            • <strong>서측 임원실:</strong> <strong>부원장실(세로 4,000mm)</strong>과 <strong>경영관리실장실(세로 2,950mm)</strong>의 면적 차이 반영<br>
+            • <strong>북측 관리사무원실:</strong> <strong>팀장 1인 + 관리원 4인이 한 팀을 이루는 총 4개 팀(20석)</strong> 오피스<br>
+            • <strong>승강기홀 & 출입구:</strong> 대리석 바닥, 방염 템바보드, 폭 2,400mm 주출입구 정밀 구현
           </p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>7층 프리미엄 마감 스펙</span>
+            <span class="tag">실시설계 스펙</span>
+          </div>
+          <div class="specs-list">
+            <div class="spec-item">
+              <span class="spec-label">승강기홀 템바보드 포인트월 & 주출입구 (A-082, P.15)</span>
+              <span class="spec-desc">기존 천연 대리석 바닥 존치 + 다크우드 방염 템바보드 벽체 + 3인치 LED 다운라이트 + 폭 2,400mm 양개 유리 자동문 주출입구</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">원장실 LPL 랩핑보드 & 3.2m 맞춤 TV장 (A-064)</span>
+              <span class="spec-desc">석고보드 위 LPL 방염 랩핑보드 마감, 3,200×1,800mm 대형 맞춤형 미디어 TV장 & VIP 접견 소파</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">간부회의실 12인 회의실 & 에칭유리 파티션 (A-070)</span>
+              <span class="spec-desc">4.2m 대형 회의 테이블 & 12석 고급 회의 체어, T:12mm 투명 강화유리 위 1/2 불투명 에칭 시트 마감</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">부원장실(4.0m) vs 경영실장실(2.95m) 및 관리원 4개 팀 (A-057)</span>
+              <span class="spec-desc">부원장실(세로 4,000mm)과 경영실장실(세로 2,950mm)의 면적 차등 배치, 북측 4개 팀(20석) 완비</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1155,34 +1356,62 @@
         </div>
         <div class="drawing-card">
           <div class="drawing-header">
-            <div class="drawing-title">7층 프리미엄 마감 스펙</div>
-            <span class="tag">실시설계 스펙</span>
+            <div class="drawing-title">지상 7층 간부회의실 전개도 (A-070)</div>
+            <span class="tag">에칭유리 & 차음벽체</span>
           </div>
-          <div class="specs-list" style="padding: 1rem;">
-            <div class="spec-item">
-              <span class="spec-label">승강기홀 템바보드 포인트월 & 주출입구 (A-082, P.15)</span>
-              <span class="spec-desc">기존 천연 대리석 바닥 존치 + 다크우드 방염 템바보드 벽체 + 3인치 LED 다운라이트 + 폭 2,400mm 양개 유리 자동문 주출입구</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">원장실 LPL 랩핑보드 & 3.2m 맞춤 TV장 (A-064)</span>
-              <span class="spec-desc">석고보드 위 LPL 방염 랩핑보드 마감, 3,200×1,800mm 대형 맞춤형 미디어 TV장 & VIP 접견 소파</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">간부회의실 12인 회의실 & 에칭유리 파티션 (A-070)</span>
-              <span class="spec-desc">4.2m 대형 회의 테이블 & 12석 고급 회의 체어, T:12mm 투명 강화유리 위 1/2 불투명 에칭 시트 마감</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">부원장실(4.0m) vs 경영실장실(2.95m) 및 관리원 4개 팀 (A-057)</span>
-              <span class="spec-desc">부원장실(세로 4,000mm)과 경영실장실(세로 2,950mm)의 면적 차등 배치, 북측 팀장 1인 + 관리원 4인 체제의 4개 팀(20석) 완비</span>
-            </div>
+          <div class="drawing-viewer" onclick="openModal('images/7f_boardroom_elevation.png', '지상 7층 간부회의실 전개도 (A-070)')">
+            <img src="images/7f_boardroom_elevation.png" alt="7F 간부회의실 전개도">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 14F: 스카이라운지 -->
+    <!-- ========================================== -->
+    <!-- 14F: 스카이라운지 (3D 조감도 및 투시도 완비) -->
+    <!-- ========================================== -->
     <section id="floor-14f" class="floor-section">
+      <!-- 14층 메인 3D 실사 렌더링 카드 2종 (조감도 + 투시도) -->
       <div class="floor-grid">
+        <div class="card">
+          <div class="card-title">
+            <span>🏛️ 14층 스카이라운지 3D 전체 조감도 (Isometric View)</span>
+            <span class="tag tag-purple">3D 전체 조감도</span>
+          </div>
+          <div class="image-viewer" onclick="openModal('images/14f_sky_lounge_birdseye_render.jpg', '지상 14층 스카이라운지 & 옥상 테라스 3D 전체 조감도 (도면 A-074 기준 17.5m x 7.2m 홍고벽돌 벽체, 4.6m 아일랜드 바카운터, 옥상 데크정원)')">
+            <img src="images/14f_sky_lounge_birdseye_render.jpg" alt="14F 스카이라운지 전체 조감도">
+            <div class="image-overlay">
+              <span>🔍 클릭하여 전체 화면으로 3D 전체 조감도 확인</span>
+            </div>
+            <div class="zoom-hint">Bird's-eye View</div>
+          </div>
+          <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
+            <strong>도면 A-074 실측 전체 조망:</strong> 가로 17.5m × 세로 7.2m 스카이라운지 내 
+            <strong>인테리어 홍고벽돌 벽체</strong>, <strong>길이 4,600mm 광폭 아일랜드 바 카운터</strong>와 티테이블 코너, 
+            그리고 창호 밖으로 시원하게 연결되는 <strong>옥상 합성목재 데크 테라스 정원</strong>을 한눈에 감상할 수 있습니다.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>☕ 14층 스카이라운지 3D 실내 건축 투시도 (Interior View)</span>
+            <span class="tag tag-blue">3D 내부 투시도</span>
+          </div>
+          <div class="image-viewer" onclick="openModal('images/14f_sky_lounge_render.jpg', '지상 14층 스카이라운지 3D 실내 투시도 (홍고벽돌, 인조대리석 바카운터, 목재 루버, 부산 도심 조망 파노라마 뷰)')">
+            <img src="images/14f_sky_lounge_render.jpg" alt="14F 라운지 3D 투시도">
+            <div class="image-overlay">
+              <span>🔍 클릭하여 전체 화면으로 3D 실내 투시도 확인</span>
+            </div>
+            <div class="zoom-hint">Interior Render</div>
+          </div>
+          <p style="margin-top: 14px; font-size: 0.95rem; color: var(--text-muted);">
+            <strong>고벽돌 질감과 도심 스카이라인의 조화:</strong> 클래식한 붉은 고벽돌 벽면에 은은한 펜던트 조명이 드리우고, 
+            인조대리석 바 카운터와 바체어, 빈백 소파에 앉아 부산 도심 전경을 조망하며 힐링과 교류를 즐기는 카페테리아 감성을 담아냈습니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 14층 도면 및 스펙 그리드 -->
+      <div class="floor-grid" style="margin-top: 1.5rem;">
         <div class="card">
           <div class="card-title">
             <span>지상 14층 스카이라운지 평면 계획</span>
@@ -1294,10 +1523,51 @@
     const sections = document.querySelectorAll('.floor-section');
 
     let viewerInstances = {
+      '1f': null,
       '2f': null,
       'std': null,
       '7f': null
     };
+
+    function initFloorViewer(floorKey) {
+      if (floorKey === '1f') {
+        if (!viewerInstances['1f'] && typeof initFloor1F3D === 'function') {
+          setTimeout(() => {
+            viewerInstances['1f'] = initFloor1F3D('three-container-1f');
+            setup1FControls(viewerInstances['1f']);
+          }, 50);
+        } else {
+          window.dispatchEvent(new Event('resize'));
+        }
+      } else if (floorKey === '2f') {
+        if (!viewerInstances['2f'] && typeof initFloor2F3D === 'function') {
+          setTimeout(() => {
+            viewerInstances['2f'] = initFloor2F3D('three-container-2f');
+            setup2FControls(viewerInstances['2f']);
+          }, 50);
+        } else {
+          window.dispatchEvent(new Event('resize'));
+        }
+      } else if (floorKey === 'std') {
+        if (!viewerInstances['std'] && typeof initStandardFloor3D === 'function') {
+          setTimeout(() => {
+            viewerInstances['std'] = initStandardFloor3D('three-container');
+            setupStdControls(viewerInstances['std']);
+          }, 50);
+        } else {
+          window.dispatchEvent(new Event('resize'));
+        }
+      } else if (floorKey === '7f') {
+        if (!viewerInstances['7f'] && typeof initFloor7F3D === 'function') {
+          setTimeout(() => {
+            viewerInstances['7f'] = initFloor7F3D('three-container-7f');
+            setup7FControls(viewerInstances['7f']);
+          }, 50);
+        } else {
+          window.dispatchEvent(new Event('resize'));
+        }
+      }
+    }
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -1311,40 +1581,60 @@
           targetSection.classList.add('active');
         }
 
-        // Initialize 3D on demand
-        if (floorKey === '2f') {
-          if (!viewerInstances['2f'] && typeof initFloor2F3D === 'function') {
-            setTimeout(() => {
-              viewerInstances['2f'] = initFloor2F3D('three-container-2f');
-              setup2FControls(viewerInstances['2f']);
-            }, 50);
-          } else {
-            window.dispatchEvent(new Event('resize'));
-          }
-        } else if (floorKey === 'std') {
-          if (!viewerInstances['std'] && typeof initStandardFloor3D === 'function') {
-            setTimeout(() => {
-              viewerInstances['std'] = initStandardFloor3D('three-container');
-              setupStdControls(viewerInstances['std']);
-            }, 50);
-          } else {
-            window.dispatchEvent(new Event('resize'));
-          }
-        } else if (floorKey === '7f') {
-          if (!viewerInstances['7f'] && typeof initFloor7F3D === 'function') {
-            setTimeout(() => {
-              viewerInstances['7f'] = initFloor7F3D('three-container-7f');
-              setup7FControls(viewerInstances['7f']);
-            }, 50);
-          } else {
-            window.dispatchEvent(new Event('resize'));
-          }
-        }
+        initFloorViewer(floorKey);
       });
     });
 
+    // Initial Load - Initialize 1F 3D Model
+    window.addEventListener('DOMContentLoaded', () => {
+      initFloorViewer('1f');
+    });
+
+    // 1F Controls Setup
+    function setup1FControls(api) {
+      if (!api) return;
+      const viewButtons = [
+        { id: 'btn-1f-iso', action: api.setIsoView },
+        { id: 'btn-1f-front', action: api.setFrontView },
+        { id: 'btn-1f-bookcase', action: api.setBookcaseView },
+        { id: 'btn-1f-reading', action: api.setReadingView },
+        { id: 'btn-1f-entrance', action: api.setEntranceView },
+        { id: 'btn-1f-lounge', action: api.setLoungeView },
+        { id: 'btn-1f-top', action: api.setTopView }
+      ];
+      viewButtons.forEach(b => {
+        document.getElementById(b.id)?.addEventListener('click', (e) => {
+          viewButtons.forEach(btn => document.getElementById(btn.id)?.classList.remove('active'));
+          e.target.classList.add('active');
+          b.action();
+        });
+      });
+
+      let rotate = false, walls = false, ceiling = false, night = false;
+      document.getElementById('btn-1f-rotate')?.addEventListener('click', (e) => {
+        rotate = api.toggleAutoRotate();
+        e.target.classList.toggle('active', rotate);
+      });
+      document.getElementById('btn-1f-walls')?.addEventListener('click', (e) => {
+        walls = !walls;
+        api.toggleWalls(walls);
+        e.target.classList.toggle('active', walls);
+      });
+      document.getElementById('btn-1f-ceiling')?.addEventListener('click', (e) => {
+        ceiling = !ceiling;
+        api.toggleCeiling(ceiling);
+        e.target.classList.toggle('active', ceiling);
+      });
+      document.getElementById('btn-1f-night')?.addEventListener('click', (e) => {
+        night = !night;
+        api.toggleNightMode(night);
+        e.target.classList.toggle('active', night);
+      });
+    }
+
     // 2F Controls Setup
     function setup2FControls(api) {
+      if (!api) return;
       const viewButtons = [
         { id: 'btn-2f-iso', action: api.setIsoView },
         { id: 'btn-2f-main', action: api.setMainHallView },
@@ -1361,7 +1651,7 @@
         });
       });
 
-      let rotate = false, walls = false, ceiling = true, night = false;
+      let rotate = false, walls = false, ceiling = false, night = false;
       document.getElementById('btn-2f-rotate')?.addEventListener('click', (e) => {
         rotate = api.toggleAutoRotate();
         e.target.classList.toggle('active', rotate);
@@ -1374,7 +1664,7 @@
       document.getElementById('btn-2f-ceiling')?.addEventListener('click', (e) => {
         ceiling = !ceiling;
         api.toggleCeiling(ceiling);
-        e.target.classList.toggle('active', !ceiling);
+        e.target.classList.toggle('active', ceiling);
       });
       document.getElementById('btn-2f-night')?.addEventListener('click', (e) => {
         night = !night;
@@ -1385,6 +1675,7 @@
 
     // Standard Floor Controls Setup
     function setupStdControls(api) {
+      if (!api) return;
       const viewButtons = [
         { id: 'btn-view-iso', action: api.setIsoView },
         { id: 'btn-view-top', action: api.setTopView },
@@ -1401,7 +1692,7 @@
         });
       });
 
-      let rotate = false, walls = false, ceiling = true, night = false;
+      let rotate = false, walls = false, ceiling = false, night = false;
       document.getElementById('btn-toggle-rotate')?.addEventListener('click', (e) => {
         rotate = api.toggleAutoRotate();
         e.target.classList.toggle('active', rotate);
@@ -1414,7 +1705,7 @@
       document.getElementById('btn-toggle-ceiling')?.addEventListener('click', (e) => {
         ceiling = !ceiling;
         api.toggleCeiling(ceiling);
-        e.target.classList.toggle('active', !ceiling);
+        e.target.classList.toggle('active', ceiling);
       });
       document.getElementById('btn-toggle-night')?.addEventListener('click', (e) => {
         night = !night;
@@ -1425,6 +1716,7 @@
 
     // 7F Controls Setup
     function setup7FControls(api) {
+      if (!api) return;
       const viewButtons = [
         { id: 'btn-7f-iso', action: api.setIsoView },
         { id: 'btn-7f-top', action: api.setTopView },
@@ -1442,7 +1734,7 @@
         });
       });
 
-      let rotate = false, walls = false, ceiling = true, night = false;
+      let rotate = false, walls = false, ceiling = false, night = false;
       document.getElementById('btn-7f-rotate')?.addEventListener('click', (e) => {
         rotate = api.toggleAutoRotate();
         e.target.classList.toggle('active', rotate);
@@ -1455,7 +1747,7 @@
       document.getElementById('btn-7f-ceiling')?.addEventListener('click', (e) => {
         ceiling = !ceiling;
         api.toggleCeiling(ceiling);
-        e.target.classList.toggle('active', !ceiling);
+        e.target.classList.toggle('active', ceiling);
       });
       document.getElementById('btn-7f-night')?.addEventListener('click', (e) => {
         night = !night;
